@@ -72,9 +72,6 @@ const CallNotes = () => {
           <strong>Call back number: </strong>{callBackNumber}
         </div>
         <div>
-          <strong>Address: </strong>{address}
-        </div>
-        <div>
           <strong>Issues reported: </strong>{issues}
         </div>
         <div>
