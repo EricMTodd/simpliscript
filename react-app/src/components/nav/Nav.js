@@ -3,7 +3,7 @@ import './nav.css'
 const Nav = () => {
   return(
     <nav>
-      nav
+      simpliscript
     </nav>
   )
 }

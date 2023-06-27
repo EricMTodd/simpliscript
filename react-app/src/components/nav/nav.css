@@ -6,4 +6,5 @@ nav {
   border-bottom: 1px solid gray;
   display: flex;
   align-items: center;
+  padding-left: 15px;
 }

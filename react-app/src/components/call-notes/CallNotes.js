@@ -9,6 +9,27 @@ const CallNotes = () => {
   const [troubleshooting, setTroubleshooting] = useState('')
   const [resolution, setResolution] = useState('')
 
+  const toggleFormatting = () => {
+    let editable = document.querySelector('.editable')
+    let formatted = document.querySelector('.formatted')
+    if (editable.style.display !== 'none' && formatted.style.display !== 'flex') {
+      editable.style.display = 'none'
+      formatted.style.display = 'flex'
+    } else if (editable.style.display !== 'flex' && formatted.style.display !== 'none') {
+      editable.style.display = 'flex'
+      formatted.style.display = 'none'
+    }
+  }
+
+  const clearNotes = () => {
+    setCaller('')
+    setCallBackNumber('')
+    setAddress('')
+    setIssues('')
+    setTroubleshooting('')
+    setResolution('')
+  }
+
   return(
     <div className='call-notes-container'>
       <h1>Call notes container</h1>
@@ -24,11 +45,11 @@ const CallNotes = () => {
         <label htmlFor='address-input'>
           <strong>Address: </strong>
         </label>
-        <input type='text' id='address-input' autoComplete='off' value={address} onChange={e => setAddress} />
+        <input type='text' id='address-input' autoComplete='off' value={address} onChange={e => setAddress(e.target.value)} />
         <label htmlFor='issues-textarea'>
           <strong>Issues reported: </strong>
         </label>
-        <textarea id='issues-textarea' value={issues} onChange={e => setIssues} />
+        <textarea id='issues-textarea' value={issues} onChange={e => setIssues(e.target.value)} />
         <label htmlFor='troubleshooting-textarea'>
           <strong>Troubleshooting: </strong>
         </label>
@@ -38,8 +59,33 @@ const CallNotes = () => {
         </label>
         <textarea id='resolution-textarea' value={resolution} onChange={e => setResolution(e.target.value)} />
         <div className='form-buttons-container'>
-          <button type='button'>Format</button>
-          <button type='button'>Clear</button>
+          <button type='button' onClick={() => toggleFormatting()}>Format</button>
+          <button type='button' onClick={() => clearNotes()}>Clear</button>
+        </div>
+      </form>
+
+      <form className='formatted' style={{display: 'none'}}>
+        <div>
+          <strong>Talking to: </strong>{caller}
+        </div>
+        <div>
+          <strong>Call back number: </strong>{callBackNumber}
+        </div>
+        <div>
+          <strong>Address: </strong>{address}
+        </div>
+        <div>
+          <strong>Issues reported: </strong>{issues}
+        </div>
+        <div>
+          <strong>Troubleshooting: </strong>{troubleshooting}
+        </div>
+        <div>
+          <strong>Resolution: </strong>{resolution}
+        </div>
+        <div className='form-buttons-container'>
+          <button type='button' onClick={() => toggleFormatting()}>Format</button>
+          <button type='button' onClick={() => clearNotes()}>Clear</button>
         </div>
       </form>
     </div>
