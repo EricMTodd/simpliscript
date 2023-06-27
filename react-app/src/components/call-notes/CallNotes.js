@@ -66,7 +66,7 @@ const CallNotes = () => {
 
       <form className='formatted' style={{display: 'none'}}>
         <div>
-          <strong>Talking to: </strong>{caller}
+          <strong>Talked to: </strong>{caller}
         </div>
         <div>
           <strong>Call back number: </strong>{callBackNumber}
