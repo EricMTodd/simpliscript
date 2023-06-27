@@ -1,0 +1,47 @@
+.call-notes-container {
+  background-color: black;
+  height: calc(100vh - 125px);
+  width: 67%;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  padding: 15px;
+  margin-top: 10px;
+  border-radius: 5px;
+}
+
+.call-notes-container > form {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.call-notes-container > form > label {
+  margin-top: 5px;
+}
+
+.call-notes-container > form > input {
+  height: 7.5%;
+  border-radius: 5px;
+  border: none;
+}
+
+.call-notes-container > form > textarea {
+  height: 30%;
+  border-radius: 5px;
+  border: none;
+}
+
+.form-buttons-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 15px;
+}
+
+.form-buttons-container > button {
+  width: 49%;
+  height: 60px;
+  border-radius: 5px;
+  border: none;
+}
