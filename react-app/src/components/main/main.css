@@ -1,0 +1,7 @@
+main {
+  background-color: rgba(50, 50, 50, 1);
+  color: white;
+  height: calc(100vh - 75px);
+  width: 100%;
+  overflow-y: scroll;
+}
