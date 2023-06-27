@@ -81,7 +81,7 @@ const CallNotes = () => {
           <strong>Resolution: </strong>{resolution}
         </div>
         <div className='form-buttons-container'>
-          <button type='button' onClick={() => toggleFormatting()}>Format</button>
+          <button type='button' onClick={() => toggleFormatting()}>Edit</button>
           <button type='button' onClick={() => clearNotes()}>Clear</button>
         </div>
       </form>
