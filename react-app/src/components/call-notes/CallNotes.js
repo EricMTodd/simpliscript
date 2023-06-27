@@ -32,7 +32,7 @@ const CallNotes = () => {
 
   return(
     <div className='call-notes-container'>
-      <h1>Call notes container</h1>
+      <h1>Call notes</h1>
       <form className='editable'>
         <label htmlFor='caller-input'>
           <strong>Talking to: </strong>
