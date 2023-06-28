@@ -1,5 +1,5 @@
 import './call-notes.css'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 const CallNotes = () => {
   const [caller, setCaller] = useState('')
@@ -8,6 +8,13 @@ const CallNotes = () => {
   const [issues, setIssues] = useState('')
   const [troubleshooting, setTroubleshooting] = useState('')
   const [resolution, setResolution] = useState('')
+
+  useEffect(() => {
+    let history = localStorage.getItem('history')
+    if (!history) {
+      localStorage.setItem('history', JSON.stringify([]))
+    }
+  }, [])
 
   const toggleFormatting = () => {
     let editable = document.querySelector('.editable')
@@ -30,10 +37,35 @@ const CallNotes = () => {
     setResolution('')
   }
 
+  const handleSubmit = e => {
+    e.preventDefault()
+    let history = JSON.parse(localStorage.getItem('history'))
+    let newNote = {
+      createdAt: new Date(),
+      caller: caller,
+      callBackNumber: callBackNumber,
+      address: address,
+      issues: issues,
+      troubleshooting: troubleshooting,
+      resolution: resolution
+    }
+
+    history.push(newNote)
+    localStorage.setItem('history', JSON.stringify(history))
+    clearNotes()
+
+    let editable = document.querySelector('.editable')
+    let formatted = document.querySelector('.formatted')
+    if (editable.style.display !== 'flex' && formatted.style.display !== 'none') {
+      editable.style.display = 'flex'
+      formatted.style.display = 'none'
+    }
+  }
+
   return(
     <div className='call-notes-container'>
       <h1>Call notes</h1>
-      <form className='editable'>
+      <form className='editable' onSubmit={handleSubmit}>
         <label htmlFor='caller-input'>
           <strong>Talking to: </strong>
         </label>
@@ -60,11 +92,11 @@ const CallNotes = () => {
         <textarea id='resolution-textarea' value={resolution} onChange={e => setResolution(e.target.value)} />
         <div className='form-buttons-container'>
           <button type='button' onClick={() => toggleFormatting()}>Format</button>
-          <button type='button' onClick={() => clearNotes()}>Clear</button>
+          <button type='Submit'>Clear and save</button>
         </div>
       </form>
 
-      <form className='formatted' style={{display: 'none'}}>
+      <form className='formatted' onSubmit={handleSubmit} style={{display: 'none'}}>
         <div>
           <strong>Talked to: </strong>{caller}
         </div>
@@ -82,7 +114,7 @@ const CallNotes = () => {
         </div>
         <div className='form-buttons-container'>
           <button type='button' onClick={() => toggleFormatting()}>Edit</button>
-          <button type='button' onClick={() => clearNotes()}>Clear</button>
+          <button type='submit'>Clear and Save</button>
         </div>
       </form>
     </div>
