@@ -1,4 +1,4 @@
-.call-notes-container {
+.new-call-note-container {
   background-color: black;
   height: calc(100vh - 125px);
   width: 67%;
@@ -9,23 +9,23 @@
   border-radius: 5px;
 }
 
-.call-notes-container > form {
+.new-call-note-container > form {
   display: flex;
   flex-direction: column;
   height: 100%;
 }
 
-.call-notes-container > form > label {
+.new-call-note-container > form > label {
   margin-top: 5px;
 }
 
-.call-notes-container > form > input {
+.new-call-note-container > form > input {
   height: 7.5%;
   border-radius: 5px;
   border: none;
 }
 
-.call-notes-container > form > textarea {
+.new-call-note-container > form > textarea {
   height: 30%;
   border-radius: 5px;
   border: none;

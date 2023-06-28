@@ -1,7 +1,7 @@
-import './call-notes.css'
+import './new.css'
 import { useState, useEffect } from 'react'
 
-const CallNotes = () => {
+const New = () => {
   const [caller, setCaller] = useState('')
   const [callBackNumber, setCallBackNumber] = useState('')
   const [address, setAddress] = useState('')
@@ -63,7 +63,7 @@ const CallNotes = () => {
   }
 
   return(
-    <div className='call-notes-container'>
+    <div className='new-call-note-container'>
       <h1>Call notes</h1>
       <form className='editable' onSubmit={handleSubmit}>
         <label htmlFor='caller-input'>
@@ -121,4 +121,4 @@ const CallNotes = () => {
   )
 }
 
-export default CallNotes
+export default New

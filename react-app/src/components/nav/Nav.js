@@ -1,9 +1,12 @@
 import './nav.css'
+import { Link } from 'react-router-dom'
 
 const Nav = () => {
   return(
     <nav>
-      simpliscript
+      <Link to='/'>simpliscript</Link>|
+      <Link to='/notes/new'>create note</Link> | 
+      <Link to='/notes/history'>notes history</Link>
     </nav>
   )
 }
