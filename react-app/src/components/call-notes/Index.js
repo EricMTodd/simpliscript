@@ -7,14 +7,16 @@ const Index = () => {
 
   useEffect(() => {
     let notes = JSON.parse(localStorage.getItem('history'))
+    let sortedNotes = notes.reverse()
 
-    if (notes) {
-      setHistory(JSON.parse(localStorage.getItem('history')))
+    if (sortedNotes) {
+      setHistory(sortedNotes)
     }
   }, [])
 
   const clearHistory = () => {
-    localStorage.clear()
+    localStorage.setItem('history', JSON.stringify([]))
+    localStorage.setItem('id', JSON.stringify(0))
     setHistory([])
   }
   
@@ -26,7 +28,7 @@ const Index = () => {
         <button type='button' onClick={() => clearHistory()}>clear history</button>
       </div>
       <ul>
-        {history.map(note => <li key={note.createdAt}><Show createdAt={note.createdAt} caller={note.caller} callBackNumber={note.callBackNumber} address={note.address} issues={note.issues} troubleshooting={note.troubleshooting} resolution={note.resolution} /></li>)}
+        {history.map(note => <li key={note.id}><Show createdAt={note.createdAt} caller={note.caller} callBackNumber={note.callBackNumber} address={note.address} issues={note.issues} troubleshooting={note.troubleshooting} resolution={note.resolution} /></li>)}
       </ul>
     </div>
   )

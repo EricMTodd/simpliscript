@@ -1,5 +1,5 @@
 import './new.css'
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 
 const New = () => {
   const [caller, setCaller] = useState('')
@@ -8,13 +8,6 @@ const New = () => {
   const [issues, setIssues] = useState('')
   const [troubleshooting, setTroubleshooting] = useState('')
   const [resolution, setResolution] = useState('')
-
-  useEffect(() => {
-    let history = localStorage.getItem('history')
-    if (!history) {
-      localStorage.setItem('history', JSON.stringify([]))
-    }
-  }, [])
 
   const toggleFormatting = () => {
     let editable = document.querySelector('.editable')
@@ -40,7 +33,9 @@ const New = () => {
   const handleSubmit = e => {
     e.preventDefault()
     let history = JSON.parse(localStorage.getItem('history'))
+    let id = JSON.parse(localStorage.getItem('id'))
     let newNote = {
+      id: id,
       createdAt: new Date(),
       caller: caller,
       callBackNumber: callBackNumber,
@@ -51,7 +46,9 @@ const New = () => {
     }
 
     history.push(newNote)
+    id += 1
     localStorage.setItem('history', JSON.stringify(history))
+    localStorage.setItem('id', JSON.stringify(id))
     clearNotes()
 
     let editable = document.querySelector('.editable')

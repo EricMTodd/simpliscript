@@ -1,9 +1,20 @@
 import './app.css'
+import { useEffect } from 'react'
 import Nav from './components/nav/Nav.js'
 import Main from './components/main/Main.js'
 import Footer from './components/footer/Footer.js'
 
 const App = () => {
+
+  useEffect(() => {
+    let history = localStorage.getItem('history')
+    let id = localStorage.getItem('id')
+    if (!history && !id) {
+      localStorage.setItem('history', JSON.stringify([]))
+      localStorage.setItem('id', JSON.stringify(0))
+    }
+  }, [])
+
   return(
     <div className='app'>
       <Nav />

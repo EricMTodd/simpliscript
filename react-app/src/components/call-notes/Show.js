@@ -1,6 +1,7 @@
 import './show.css'
 
 const Show = ({
+  id,
   createdAt,
   caller,
   callBackNumber,
