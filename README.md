@@ -4,10 +4,9 @@ Note taking, script building and other resources for FirstSource Tech Support ag
 # TODO
 
 - Implement localStorage for notes []
-  a. Notes are saved in localStorage []
-  b. History of notes can be toggled []
-  c. All notes can be destroyed []
-  d. individual notes can be destroyed []
+  a. Notes are saved in localStorage [X]
+  b. History of notes can be toggled [X]
+  c. All notes can be destroyed [X]
 - Implement basic user hub (complete index) []
 - Implement script creation using localStorage []
 - Implement a talking points resource []
