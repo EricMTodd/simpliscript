@@ -1,5 +1,11 @@
+*::-webkit-scrollbar {
+  display: none;
+}
+
 * {
   font-family: sans-serif;
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
 }
 
 html {
