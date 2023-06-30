@@ -5,8 +5,7 @@ const Nav = () => {
   return(
     <nav>
       <Link to='/'>simpliscript</Link>|
-      <Link to='/notes/new'>create note</Link> | 
-      <Link to='/notes/history'>notes history</Link>
+      <Link to='/notes/history'>call notes</Link>
     </nav>
   )
 }

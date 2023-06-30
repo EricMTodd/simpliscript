@@ -1,5 +1,6 @@
 import './index.css'
 import { useState, useEffect } from 'react'
+import { Link } from 'react-router-dom'
 import Show from './Show.js'
 
 const Index = () => {
@@ -25,7 +26,10 @@ const Index = () => {
     <div className='notes-index-container'>
       <div className='notes-index-header'>
         <h1>History</h1> 
-        <button type='button' onClick={() => clearHistory()}>clear history</button>
+        <div>
+          <Link to='/notes/new'>new call note</Link> | 
+          <button type='button' onClick={() => clearHistory()}>clear history</button>
+        </div>
       </div>
       <ul>
         {history.map(note => <li key={note.id}><Show createdAt={note.createdAt} caller={note.caller} callBackNumber={note.callBackNumber} address={note.address} issues={note.issues} troubleshooting={note.troubleshooting} resolution={note.resolution} /></li>)}

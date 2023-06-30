@@ -8,9 +8,12 @@ const App = () => {
 
   useEffect(() => {
     let history = localStorage.getItem('history')
-    let id = localStorage.getItem('id')
-    if (!history && !id) {
+    if (!history) {
       localStorage.setItem('history', JSON.stringify([]))
+    }
+    
+    let id = localStorage.getItem('id')
+    if (!id) {
       localStorage.setItem('id', JSON.stringify(0))
     }
   }, [])

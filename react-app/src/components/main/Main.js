@@ -8,7 +8,7 @@ const Main = () => {
   return(
     <main>
       <Routes>
-        <Route path='/' element={<Home />} />
+        <Route path='/' element={<New />} />
         <Route path='/notes/new' element={<New />} />
         <Route path='/notes/history' element={<Index />} />
       </Routes>
