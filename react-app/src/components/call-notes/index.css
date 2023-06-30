@@ -20,6 +20,7 @@ li {
 .notes-index-header > div {
   display: flex;
   align-items: flex-end;
+  gap: 7.5px;
 }
 
 .notes-index-header > div > button {
@@ -27,6 +28,7 @@ li {
   border: none;
   color: white;
   font-size: 16px;
+  padding: 0;
 }
 
 .notes-index-header > div > button:hover {
